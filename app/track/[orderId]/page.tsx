@@ -60,16 +60,16 @@ export default function OrderTrackingPage({ params }: { params: Promise<{ orderI
   ]
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans pb-12">
+    <div className="min-h-screen bg-background text-foreground font-sans pb-12">
       {/* Top Mobile Header */}
-      <div className="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40 p-4">
+      <div className="bg-card/80 backdrop-blur-md border-b border-border sticky top-0 z-40 p-4">
         <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-xs font-bold">
+          <Link href="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-xs font-bold">
             <ArrowLeft className="w-4 h-4" /> Back to Store
           </Link>
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
-            <span className="text-xs font-black tracking-wider uppercase text-emerald-400">Live Delivery Sync</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-primary animate-ping" />
+            <span className="text-xs font-black tracking-wider uppercase text-primary">Live Delivery Sync</span>
           </div>
         </div>
       </div>
@@ -77,21 +77,21 @@ export default function OrderTrackingPage({ params }: { params: Promise<{ orderI
       <div className="max-w-2xl mx-auto p-4 sm:p-6 space-y-6">
         
         {/* Swiggy/Zomato Hero Status Card */}
-        <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 relative overflow-hidden shadow-2xl space-y-4">
+        <div className="bg-card border border-border rounded-3xl p-6 relative overflow-hidden shadow-2xl space-y-4">
           <div className="absolute -right-12 -top-12 w-40 h-40 bg-secondary/10 rounded-full blur-3xl pointer-events-none" />
 
           {order?.status === 'cancelled' ? (
             <div className="text-center py-6 space-y-2">
-              <AlertCircle className="w-12 h-12 text-red-500 mx-auto" />
-              <h2 className="text-xl font-black text-white">Order Cancelled</h2>
-              <p className="text-xs text-slate-400">This order has been cancelled and refunded.</p>
+              <AlertCircle className="w-12 h-12 text-destructive mx-auto" />
+              <h2 className="text-xl font-black text-foreground">Order Cancelled</h2>
+              <p className="text-xs text-muted-foreground">This order has been cancelled and refunded.</p>
             </div>
           ) : (
             <>
               <div className="flex items-start justify-between">
                 <div>
-                  <span className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-widest block">ORDER #{order?.id || orderId}</span>
-                  <h1 className="text-2xl font-black text-white tracking-tight mt-0.5">
+                  <span className="text-[10px] font-mono text-muted-foreground font-bold uppercase tracking-widest block">ORDER #{order?.id || orderId}</span>
+                  <h1 className="text-2xl font-black text-foreground tracking-tight mt-0.5">
                     {currentStep === 5
                       ? 'Order Delivered!'
                       : currentStep === 4
@@ -100,8 +100,8 @@ export default function OrderTrackingPage({ params }: { params: Promise<{ orderI
                   </h1>
                 </div>
 
-                <div className="text-right bg-slate-950 p-3 rounded-2xl border border-slate-800">
-                  <span className="text-[9px] uppercase font-extrabold text-slate-500 block">Estimated Time</span>
+                <div className="text-right bg-muted p-3 rounded-2xl border border-border">
+                  <span className="text-[9px] uppercase font-extrabold text-muted-foreground block">Estimated Time</span>
                   <span className="text-lg font-black text-secondary font-mono">
                     {currentStep === 5 ? 'Completed' : order?.estimatedDeliveryTime || '25-35 mins'}
                   </span>
@@ -109,7 +109,7 @@ export default function OrderTrackingPage({ params }: { params: Promise<{ orderI
               </div>
 
               {/* Simulated Live Route Map Graphic */}
-              <div className="bg-slate-950 border border-slate-850 rounded-2xl p-4 relative overflow-hidden">
+              <div className="bg-muted border border-border rounded-2xl p-4 relative overflow-hidden">
                 <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#10B981_1px,transparent_1px)] [background-size:14px_14px]" />
                 
                 <div className="relative z-10 flex items-center justify-between my-2">
@@ -117,11 +117,11 @@ export default function OrderTrackingPage({ params }: { params: Promise<{ orderI
                     <div className="w-9 h-9 rounded-2xl bg-primary/20 border border-primary text-primary flex items-center justify-center mx-auto mb-1">
                       <Home className="w-4 h-4" />
                     </div>
-                    <span className="text-[9px] font-bold text-slate-400 block">FDH Hub</span>
+                    <span className="text-[9px] font-bold text-muted-foreground block">FDH Hub</span>
                   </div>
 
                   {/* Rider Motion Indicator */}
-                  <div className="flex-1 mx-4 border-t-2 border-dashed border-slate-700 relative flex items-center justify-center">
+                  <div className="flex-1 mx-4 border-t-2 border-dashed border-border relative flex items-center justify-center">
                     <div
                       className="absolute bg-secondary text-white p-1.5 rounded-full shadow-lg shadow-secondary/50 transition-all duration-1000"
                       style={{ left: `${Math.min(90, Math.max(10, (currentStep / 5) * 100))}%` }}
@@ -134,13 +134,13 @@ export default function OrderTrackingPage({ params }: { params: Promise<{ orderI
                     <div className="w-9 h-9 rounded-2xl bg-secondary/20 border border-secondary text-secondary flex items-center justify-center mx-auto mb-1">
                       <MapPin className="w-4 h-4" />
                     </div>
-                    <span className="text-[9px] font-bold text-slate-400 block">Your Home</span>
+                    <span className="text-[9px] font-bold text-muted-foreground block">Your Home</span>
                   </div>
                 </div>
 
-                <div className="relative z-10 pt-2 border-t border-slate-850/80 flex items-center justify-between text-[11px] text-slate-400">
-                  <span>Distance: <strong className="text-white">{order?.distanceKm || 4.2} km</strong></span>
-                  <span>Store Radius Check: <strong className="text-emerald-400">Validated (within 30km)</strong></span>
+                <div className="relative z-10 pt-2 border-t border-border/80 flex items-center justify-between text-[11px] text-muted-foreground">
+                  <span>Distance: <strong className="text-foreground">{order?.distanceKm || 4.2} km</strong></span>
+                  <span>Store Radius Check: <strong className="text-primary">Validated (within 30km)</strong></span>
                 </div>
               </div>
             </>
@@ -149,12 +149,12 @@ export default function OrderTrackingPage({ params }: { params: Promise<{ orderI
 
         {/* 5-Step Progress Timeline */}
         {order?.status !== 'cancelled' && (
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-6 shadow-xl">
-            <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-800 pb-3">
+          <div className="bg-card border border-border rounded-3xl p-6 space-y-6 shadow-xl">
+            <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground border-b border-border pb-3">
               Live Delivery Progress
             </h3>
 
-            <div className="space-y-6 relative before:absolute before:left-4 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-800">
+            <div className="space-y-6 relative before:absolute before:left-4 before:top-2 before:bottom-2 before:w-0.5 before:bg-border">
               {steps.map((s) => {
                 const isDone = currentStep >= s.step
                 const isCurrent = currentStep === s.step
@@ -165,7 +165,7 @@ export default function OrderTrackingPage({ params }: { params: Promise<{ orderI
                       className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs shrink-0 z-10 transition-all ${
                         isDone
                           ? 'bg-secondary text-white shadow-md shadow-secondary/30 ring-4 ring-secondary/10'
-                          : 'bg-slate-950 border border-slate-800 text-slate-600'
+                          : 'bg-muted border border-border text-muted-foreground'
                       }`}
                     >
                       {isDone ? <CheckCircle2 className="w-4 h-4" /> : s.step}
@@ -173,7 +173,7 @@ export default function OrderTrackingPage({ params }: { params: Promise<{ orderI
 
                     <div className="flex-1 pt-0.5">
                       <div className="flex items-center justify-between">
-                        <h4 className={`text-sm font-bold ${isDone ? 'text-white' : 'text-slate-500'}`}>
+                        <h4 className={`text-sm font-bold ${isDone ? 'text-foreground' : 'text-muted-foreground'}`}>
                           {s.title}
                         </h4>
                         {isCurrent && (
@@ -182,7 +182,7 @@ export default function OrderTrackingPage({ params }: { params: Promise<{ orderI
                           </span>
                         )}
                       </div>
-                      <p className="text-xs text-slate-400 mt-0.5">{s.desc}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">{s.desc}</p>
                     </div>
                   </div>
                 )
@@ -193,21 +193,21 @@ export default function OrderTrackingPage({ params }: { params: Promise<{ orderI
 
         {/* Assigned Delivery Valet Contact Card */}
         {order?.deliveryBoyName && (
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-5 flex items-center justify-between shadow-xl">
+          <div className="bg-card border border-border rounded-3xl p-5 flex items-center justify-between shadow-xl">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 bg-secondary/10 border border-secondary/20 rounded-2xl flex items-center justify-center text-secondary">
                 <Bike className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-[9px] uppercase font-extrabold text-slate-500 block">Assigned Delivery Partner</span>
-                <h4 className="text-sm font-bold text-white">{order.deliveryBoyName}</h4>
-                <p className="text-[11px] text-slate-400 font-mono">{order.deliveryBoyPhone || '+91 98765 43210'}</p>
+                <span className="text-[9px] uppercase font-extrabold text-muted-foreground block">Assigned Delivery Partner</span>
+                <h4 className="text-sm font-bold text-foreground">{order.deliveryBoyName}</h4>
+                <p className="text-[11px] text-muted-foreground font-mono">{order.deliveryBoyPhone || '+91 98765 43210'}</p>
               </div>
             </div>
 
             <a
               href={`tel:${order.deliveryBoyPhone || '9876543210'}`}
-              className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-lg"
+              className="px-4 py-2.5 bg-primary hover:bg-primary/90 text-white rounded-xl text-xs font-bold transition-all flex items-center gap-2 shadow-lg"
             >
               <Phone className="w-3.5 h-3.5" /> Call Valet
             </a>
@@ -215,8 +215,8 @@ export default function OrderTrackingPage({ params }: { params: Promise<{ orderI
         )}
 
         {/* Order Details & Summary */}
-        <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4 shadow-xl text-xs">
-          <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-800 pb-3">
+        <div className="bg-card border border-border rounded-3xl p-6 space-y-4 shadow-xl text-xs">
+          <h3 className="text-xs font-black uppercase tracking-widest text-muted-foreground border-b border-border pb-3">
             Order Summary
           </h3>
 

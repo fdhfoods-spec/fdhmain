@@ -82,7 +82,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex items-center justify-center p-6">
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-6">
         <div className="text-center space-y-4">
           <h2 className="text-xl font-bold">Product Not Found</h2>
           <Link href="/" className="px-4 py-2 bg-secondary text-white text-xs font-bold rounded-xl">
@@ -100,11 +100,11 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
   const currentPrice = selectedWeight === '1kg' ? Math.round(product.price * 1.8) : product.price
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans pb-20">
+    <div className="min-h-screen bg-background text-foreground font-sans pb-20">
       {/* Top Sticky Nav */}
-      <div className="bg-slate-900/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40 p-4">
+      <div className="bg-card/80 backdrop-blur-md border-b border-border sticky top-0 z-40 p-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-xs font-bold">
+          <Link href="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors text-xs font-bold">
             <ArrowLeft className="w-4 h-4" /> Back to Store Catalog
           </Link>
           <div className="flex items-center gap-3">
@@ -112,8 +112,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
               onClick={() => toggleWishlist(product.id)}
               className={`p-2 rounded-xl border transition-all ${
                 isBookmarked
-                  ? 'bg-red-500/10 text-red-500 border-red-500/30'
-                  : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white'
+                  ? 'bg-destructive/10 text-destructive border-destructive/30'
+                  : 'bg-muted border-border text-muted-foreground hover:text-foreground'
               }`}
             >
               <Heart className={`w-4 h-4 ${isBookmarked ? 'fill-current' : ''}`} />
@@ -128,8 +128,8 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           
           {/* Image Showcase */}
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 relative overflow-hidden shadow-2xl group">
-            <div className="aspect-square relative rounded-2xl overflow-hidden bg-slate-950">
+          <div className="bg-card border border-border rounded-3xl p-6 relative overflow-hidden shadow-2xl group">
+            <div className="aspect-square relative rounded-2xl overflow-hidden bg-muted">
               <Image
                 src={product.image}
                 alt={product.name}
@@ -145,37 +145,37 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
           {/* Product Details & Actions */}
           <div className="space-y-6">
             <div>
-              <div className="flex items-center gap-2 text-xs text-slate-400 mb-2">
+              <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
                 <span className="uppercase font-extrabold text-secondary tracking-wider">{product.category}</span>
                 <span>•</span>
                 <span className="font-mono">{product.vendorName || 'Standard Poultry Farms'}</span>
               </div>
-              <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">{product.name}</h1>
+              <h1 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight leading-tight">{product.name}</h1>
               
               {/* Rating Summary */}
               <div className="flex items-center gap-2 mt-3">
-                <div className="flex items-center gap-1 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-lg text-amber-400 text-xs font-black">
+                <div className="flex items-center gap-1 bg-secondary/10 border border-secondary/20 px-2.5 py-1 rounded-lg text-secondary text-xs font-black">
                   <Star className="w-3.5 h-3.5 fill-current" />
                   {product.rating}
                 </div>
-                <span className="text-xs text-slate-400 font-medium">({productReviews.length + product.reviews} customer reviews)</span>
+                <span className="text-xs text-muted-foreground font-medium">({productReviews.length + product.reviews} customer reviews)</span>
               </div>
             </div>
 
             {/* Price Box */}
-            <div className="bg-slate-900/60 border border-slate-850 p-5 rounded-2xl flex items-baseline gap-3">
-              <span className="text-3xl font-black font-mono text-white">₹{currentPrice}</span>
+            <div className="bg-muted/60 border border-border p-5 rounded-2xl flex items-baseline gap-3">
+              <span className="text-3xl font-black font-mono text-foreground">₹{currentPrice}</span>
               {product.originalPrice && (
-                <span className="text-sm font-mono text-slate-500 line-through">₹{Math.round(currentPrice * 1.2)}</span>
+                <span className="text-sm font-mono text-muted-foreground line-through">₹{Math.round(currentPrice * 1.2)}</span>
               )}
-              <span className="text-xs font-bold text-emerald-400 ml-auto bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
+              <span className="text-xs font-bold text-primary ml-auto bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">
                 Inclusive of all taxes
               </span>
             </div>
 
             {/* Weight Variant Selector */}
             <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Select Package Weight</label>
+              <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider block">Select Package Weight</label>
               <div className="flex gap-3">
                 {['500g', '1kg'].map((wt) => (
                   <button
@@ -184,7 +184,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
                     className={`px-5 py-2.5 rounded-xl text-xs font-bold border transition-all ${
                       selectedWeight === wt
                         ? 'bg-secondary border-secondary text-white shadow-lg shadow-secondary/20 font-black'
-                        : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white'
+                        : 'bg-card border-border text-muted-foreground hover:text-foreground'
                     }`}
                   >
                     {wt} {wt === '1kg' ? '(Value Pack)' : ''}
@@ -195,17 +195,17 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
 
             {/* Quantity & Add to Cart */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-              <div className="flex items-center justify-between bg-slate-900 border border-slate-800 rounded-xl p-1.5 w-36">
+              <div className="flex items-center justify-between bg-card border border-border rounded-xl p-1.5 w-36">
                 <button
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors"
+                  className="p-2 text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted transition-colors"
                 >
                   <Minus className="w-4 h-4" />
                 </button>
-                <span className="font-mono font-bold text-white text-sm">{quantity}</span>
+                <span className="font-mono font-bold text-foreground text-sm">{quantity}</span>
                 <button
                   onClick={() => setQuantity((q) => q + 1)}
-                  className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors"
+                  className="p-2 text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted transition-colors"
                 >
                   <Plus className="w-4 h-4" />
                 </button>
@@ -220,12 +220,12 @@ export default function ProductDetailPage({ params }: { params: Promise<{ id: st
             </div>
 
             {/* Trust Badges */}
-            <div className="grid grid-cols-2 gap-3 pt-4 border-t border-slate-850 text-xs text-slate-400">
+            <div className="grid grid-cols-2 gap-3 pt-4 border-t border-border text-xs text-muted-foreground">
               <div className="flex items-center gap-2">
-                <Truck className="w-4 h-4 text-emerald-400 shrink-0" /> Express 90-Min Delivery
+                <Truck className="w-4 h-4 text-primary shrink-0" /> Express 90-Min Delivery
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" /> FSSAI Certified 100% Fresh
+                <ShieldCheck className="w-4 h-4 text-secondary shrink-0" /> FSSAI Certified 100% Fresh
               </div>
             </div>
 

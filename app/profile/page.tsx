@@ -31,10 +31,10 @@ export default function UserProfilePage() {
 
   if (isAuthLoading) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center font-sans p-4">
+      <div className="min-h-screen bg-background flex items-center justify-center font-sans p-4">
         <div className="text-center space-y-3">
           <RefreshCw className="w-8 h-8 text-secondary animate-spin mx-auto" />
-          <p className="text-xs font-bold text-slate-400">Restoring account session...</p>
+          <p className="text-xs font-bold text-muted-foreground">Restoring account session...</p>
         </div>
       </div>
     )
@@ -42,13 +42,13 @@ export default function UserProfilePage() {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center font-sans p-4">
-        <div className="w-full max-w-md p-8 bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl text-center space-y-6">
+      <div className="min-h-screen bg-background flex items-center justify-center font-sans p-4">
+        <div className="w-full max-w-md p-8 bg-card border border-border rounded-3xl shadow-2xl text-center space-y-6">
           <div className="w-14 h-14 bg-secondary/10 border border-secondary/20 text-secondary font-black text-2xl flex items-center justify-center mx-auto rounded-2xl">
             <User className="w-7 h-7" />
           </div>
-          <h2 className="text-xl font-black text-white">Customer Sign In Required</h2>
-          <p className="text-slate-400 text-xs leading-relaxed">Please sign in with your verified mobile number to view your order history and profile details.</p>
+          <h2 className="text-xl font-black text-foreground">Customer Sign In Required</h2>
+          <p className="text-muted-foreground text-xs leading-relaxed">Please sign in with your verified mobile number to view your order history and profile details.</p>
           <Link href="/auth?redirect=/profile" className="inline-block w-full py-3.5 bg-secondary hover:bg-secondary/90 text-white font-black text-xs uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-secondary/20">
             Sign In via SMS OTP
           </Link>
