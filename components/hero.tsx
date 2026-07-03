@@ -23,11 +23,11 @@ export function Hero() {
 
   const slide = activeBanners[currentSlide] || {
     id: 1,
-    title: 'Farm Fresh Meat Delivered To Your Doorstep',
-    subtitle: 'Premium chicken, fish, mutton and ready-to-cook products prepared under strict hygiene standards and delivered chilled.',
-    badge: 'FDH Signature Standard',
-    imageUrl: 'https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=1000&auto=format&fit=crop&q=80',
-    buttonText: 'Shop Fresh',
+    title: 'Farm Fresh Delivered To Your Doorstep',
+    subtitle: 'Marketplace for verified local vendors selling fresh meat, seafood, vegetables, fruits, and dairy. Scheduled delivery ensures maximum freshness. Support local businesses.',
+    badge: 'Fresh. Trusted. Delivered.',
+    imageUrl: '/hero-vegetables.png',
+    buttonText: 'Shop Now',
     link: '#bestsellers',
   }
 
@@ -97,9 +97,9 @@ export function Hero() {
               {/* Key Trust Checkmarks */}
               <div className="grid grid-cols-3 gap-4 pt-4 border-t border-gray-100">
                 {[
-                  { icon: Shield, text: 'Clean-room cut' },
-                  { icon: Award, text: 'No hormones' },
-                  { icon: Sparkles, text: 'Cold chain seal' },
+                  { icon: Shield, text: 'Verified Vendors' },
+                  { icon: Award, text: 'Scheduled Delivery' },
+                  { icon: Sparkles, text: 'Freshness Guaranteed' },
                 ].map((badge, index) => {
                   const Icon = badge.icon
                   return (
@@ -135,14 +135,14 @@ export function Hero() {
               {/* Floating Trust Badge 1 */}
               <div className="absolute -top-6 left-4 sm:left-12 bg-white/95 backdrop-blur shadow-xl border border-gray-100 rounded-2xl p-4 flex items-center gap-3 max-w-[200px]">
                 <div className="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center flex-shrink-0 text-secondary">
-                  🥩
+                  ⭐
                 </div>
                 <div>
                   <p className="text-[10px] uppercase font-bold tracking-wider text-secondary leading-none">
-                    Chilled Delivery
+                    4.9 Rating
                   </p>
                   <p className="text-xs font-bold text-foreground mt-0.5 leading-tight">
-                    Always 0-4°C
+                    100% Fresh
                   </p>
                 </div>
               </div>
@@ -150,14 +150,14 @@ export function Hero() {
               {/* Floating Trust Badge 2 */}
               <div className="absolute -bottom-6 right-4 sm:right-12 bg-white/95 backdrop-blur shadow-xl border border-gray-100 rounded-2xl p-4 flex items-center gap-3 max-w-[200px]">
                 <div className="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center flex-shrink-0 text-primary">
-                  🛡️
+                  🚚
                 </div>
                 <div>
                   <p className="text-[10px] uppercase font-bold tracking-wider text-primary leading-none">
-                    Hygiene Standard
+                    Scheduled
                   </p>
                   <p className="text-xs font-bold text-foreground mt-0.5 leading-tight">
-                    WHO Compliant
+                    Your Preferred Slot
                   </p>
                 </div>
               </div>

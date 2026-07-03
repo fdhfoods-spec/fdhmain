@@ -4,8 +4,8 @@ import './globals.css'
 import { SupabaseInitializer } from '@/components/supabase-initializer'
 
 export const metadata: Metadata = {
-  title: 'Fresh Delivery Hub (FDH) | Premium Fresh Meat Delivery',
-  description: 'FDH represents premium fresh meat and seafood delivery. Sourced fresh daily, hygienically processed, and delivered in vacuum sealed packages at your chosen schedule.',
+  title: 'Fresh Direct Home (FDH) | Farm-Fresh Meat, Seafood & Local Vendors',
+  description: 'FDH is a trusted marketplace delivering farm-fresh meat, seafood, vegetables, fruits, and dairy from verified local vendors. Scheduled delivery ensures maximum freshness. Discover authentic home chef meals and subscription plans.',
   generator: 'v0.app',
   icons: {
     icon: [

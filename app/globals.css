@@ -50,38 +50,38 @@
 
 :root {
   color-scheme: light;
-  --background: #FAF8F3; /* Warm Ivory background */
-  --foreground: #1F2937; /* Charcoal */
-  --card: #ffffff;
+  --background: #FFFFFF; /* Clean white background */
+  --foreground: #1F2937; /* Dark charcoal text */
+  --card: #FFFFFF;
   --card-foreground: #1F2937;
-  --popover: #ffffff;
+  --popover: #FFFFFF;
   --popover-foreground: #1F2937;
-  --primary: #991B1B; /* Deep Red / Burgundy */
+  --primary: #2E7D32; /* Fresh Green - Primary brand color */
   --primary-foreground: #ffffff;
-  --secondary: #C2410C; /* Terracotta Red/Orange */
+  --secondary: #F57C00; /* Orange - Secondary accent */
   --secondary-foreground: #ffffff;
-  --muted: #ffffff; /* Pure White secondary background */
-  --muted-foreground: #4B5563;
-  --accent: #C2410C; /* Terracotta Red/Orange */
-  --accent-foreground: #ffffff;
-  --destructive: #991B1B;
-  --border: #E5E7EB; /* Gray-200 */
-  --input: #ffffff;
-  --ring: #991B1B;
-  --chart-1: #991B1B;
-  --chart-2: #C2410C;
-  --chart-3: #F59E0B;
-  --chart-4: #10B981;
-  --chart-5: #EF4444;
-  --radius: 0.75rem;
+  --muted: #F8F9FA; /* Light gray background */
+  --muted-foreground: #6B7280;
+  --accent: #E8F5E9; /* Light green accent */
+  --accent-foreground: #1B5E20;
+  --destructive: #EF4444;
+  --border: #E5E7EB; /* Gray border */
+  --input: #FFFFFF;
+  --ring: #2E7D32;
+  --chart-1: #2E7D32;
+  --chart-2: #F57C00;
+  --chart-3: #1565C0;
+  --chart-4: #D32F2F;
+  --chart-5: #F59E0B;
+  --radius: 1.25rem;
   --sidebar: #ffffff;
   --sidebar-foreground: #1F2937;
-  --sidebar-primary: #991B1B;
+  --sidebar-primary: #2E7D32;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #C2410C;
+  --sidebar-accent: #F57C00;
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #E5E7EB;
-  --sidebar-ring: #991B1B;
+  --sidebar-ring: #2E7D32;
 }
 
 .dark {
