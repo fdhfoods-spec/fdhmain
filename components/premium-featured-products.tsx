@@ -1,9 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Heart, ShoppingCart, Star } from 'lucide-react'
+import { Heart, ShoppingCart, Star, Check } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
+import { useStore } from '@/lib/store'
 
 const products = [
   {
@@ -54,6 +55,9 @@ const products = [
 
 export function PremiumFeaturedProducts() {
   const [favorites, setFavorites] = useState<Set<number>>(new Set())
+  const [addedItems, setAddedItems] = useState<Set<number>>(new Set())
+  const [toastMessage, setToastMessage] = useState<string>('')
+  const { addItem } = useStore()
 
   const toggleFavorite = (id: number) => {
     const newFavorites = new Set(favorites)
@@ -63,6 +67,31 @@ export function PremiumFeaturedProducts() {
       newFavorites.add(id)
     }
     setFavorites(newFavorites)
+  }
+
+  const handleAddToCart = (product: typeof products[0]) => {
+    const priceNum = parseInt(product.price.replace('₹', ''))
+    addItem({
+      id: product.id,
+      name: product.name,
+      price: priceNum,
+      image: product.image,
+      weight: '500g',
+      vendorName: product.vendor,
+    })
+    
+    // Show success state
+    setAddedItems(prev => new Set(prev).add(product.id))
+    setToastMessage(`Added ${product.name} to cart`)
+    
+    setTimeout(() => {
+      setAddedItems(prev => {
+        const next = new Set(prev)
+        next.delete(product.id)
+        return next
+      })
+      setToastMessage('')
+    }, 2000)
   }
 
   const containerVariants = {
@@ -183,9 +212,25 @@ export function PremiumFeaturedProducts() {
                 </div>
 
                 {/* Add to Cart Button */}
-                <button className="w-full bg-primary text-white rounded-2xl py-3 font-semibold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all">
-                  <ShoppingCart className="w-5 h-5" />
-                  Add to Cart
+                <button
+                  onClick={() => handleAddToCart(product)}
+                  className={`w-full rounded-2xl py-3 font-semibold flex items-center justify-center gap-2 transition-all ${
+                    addedItems.has(product.id)
+                      ? 'bg-green-600 text-white'
+                      : 'bg-primary text-white hover:bg-primary/90'
+                  }`}
+                >
+                  {addedItems.has(product.id) ? (
+                    <>
+                      <Check className="w-5 h-5" />
+                      Added!
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingCart className="w-5 h-5" />
+                      Add to Cart
+                    </>
+                  )}
                 </button>
               </div>
             </motion.div>
